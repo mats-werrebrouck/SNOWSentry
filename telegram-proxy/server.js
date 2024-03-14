@@ -1,3 +1,5 @@
+import config from './config';
+
 const express = require('express')
 const axios = require('axios')
 const cors = require('cors')
@@ -13,7 +15,7 @@ app.post('/send-message', async (req, res) => {
     const { chatId, message } = req.body;
 
     try {
-        const response = await axios.post('https://api.telegram.org/bot7021667199:AAE6rGmLqnMMUXoHgYB0wAm32m900xdjonk/sendMessage', {
+        const response = await axios.post(`https://api.telegram.org/bot${config.telegramToken}/sendMessage`, {
             chat_id: chatId,
             text: message
         });
