@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "SNOW notifications",
+    "version": "1.0",
+    "description": "Sends notifications on new SNOW incidents",
+    "permissions": [
+        "alarms",
+        "storage",
+        "tabs",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+
+    },
+    "content_scripts": [
+        {
+            "matches": ["{{extensionURL}}"],
+            "js": ["content.js"]
+        }
+    ]
+}
